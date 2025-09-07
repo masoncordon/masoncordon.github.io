@@ -2,12 +2,14 @@
 <html lang="en">
     <head>
         <link href="styles/style.css" rel="stylesheet" type="text/css"/>
+        <script src="scripts/scripts.js"></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cordon Portfolio</title>
     </head>
-    <body>
-        <h1>Portfolio of Mason Cordon</h1>
+    <body id="mainPage">
+        <div class="text">
+        <h1 >Portfolio of Mason Cordon</h1>
         <div class="selfieDiv">
         <img src="Images/IMG_0206-1.jpg" alt="Me grilling on a camping trip in July. This was taken about 20 minutes before I set the grill on fire.">
         </div>
@@ -21,5 +23,12 @@
 
         
         <h2>My JavaScript Projects!</h2>
+            <h3>Settings</h3>
+            <p>Current color mode: <span id='condition'>Default</span></p>
+            <button id='DefaultModeButton' onclick="DefaultMode()">Default</button>
+            <button id='DarkModeButton' onclick="DarkMode()">Dark Mode</button>
+            <button id='LightModeButton' onclick="LightMode()">Light Mode</button>
+        </select>
+    </div>
     </body>
 </html>
