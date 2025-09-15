@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="styles/style.css" rel="stylesheet" type="text/css"/>
+    <script src="scripts/scripts.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cordon Portfolio Calculator</title>
+</head>
+<body>
+    <button><a href="index.html">Return</a></button>
+    <h1>Calculator</h1>
+    <p>Welcome!! Here, you can enter the dimensions for your pyramid, and we will calculate the exact volume!
+        Additionally, you may enter the side lengths of a triangle, and we will calculate both the area and perimeter!
+    </p>
+    <!--Pyramid calculator-->
+    <h2>Pyramid</h2>
+    <div class="selfieDiv">
+    <img src="Images/pyramid.jpg">
+    </div>
+    <i id="italic">Pyramid volume formula: 1/3(a*b*h)</i>
+
+    <!--get inputs here-->
+    <p><label for='pSideA'>Side A:</label><input type='text' id='pSideA'></p>
+    <p><label for='pSideB'>Side B:</label><input type='text' id='pSideB'></p>
+    <p><label for='pHeight'>Height:</label><input type='text' id='pHeight'></p>
+
+    <!--give output here-->
+    <p>Volume: <span id="pVolume"></span></p>
+
+    <!--submit button-->
+    <button onclick='pMath()'>Submit</button>
+
+    <!--Triangle calculator-->
+    <h2>Triangle</h2>
+    <div class="selfieDiv">
+        <img src="Images/triangle.png">
+        <img src="Images/perimeter.jpg">
+    </div>
+    <p>Here, we will use something known as Heron's formula to calculate the area of the triangle.</p>
+    <i id="italic">Heron's formula: sqrt(s(s-a)(s-b)(s-c))</i>
+    <i id="italic">s = semiperimeter</i>
+    <i id="italic">semiperimeter = (a + b + c)/2</i>
+
+    <!--get inputs here-->
+    <p><label for='tSideA'>Side A:</label><input type='text' id='tSideA'></p>
+    <p><label for='tSideB'>Side B:</label><input type='text' id='tSideB'></p>
+    <p><label for='tSideC'>Side C:</label><input type='text' id='tSideC'></p>
+
+    <!--give outputs here-->
+    <p>Perimeter: <span id="tPerimeter"></span></p>
+    <p>Semiperimeter: <span id="tSemiPerimeter"></span></p>
+    <p>Area: <span id="tArea"></span></p>
+
+    <!--submit button-->
+    <button onclick='tMath()'>Submit</button>
+
+</body>
+</html>
