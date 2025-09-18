@@ -1,0 +1,30 @@
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 10%;
+    line-height: 1.6;
+    background-color: #faf0dc;
+    color: #6D8196;
+}
+.selfieDiv {
+    img {
+        display: block;
+        width: 30%;
+        height: auto;
+        border: 2px solid #ccc;
+    }
+}
+.flexContainer-bio {
+    display: flex;
+    margin-top: -2%;
+    margin-left: 32%;
+    max-width: 50%;
+    flex-wrap: wrap;
+}
+p {
+    font-size: 1rem;
+}
+
+#italic {
+    display:block;
+}
