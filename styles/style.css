@@ -28,3 +28,15 @@ p {
 #italic {
     display:block;
 }
+
+#resetButton {
+    background-color: whitesmoke;
+    size: 1.5rem;
+    color: black;
+}
+
+#a1, #a2, #a3, #b1, #b2, #b3, #c1, #c2, #c3 {
+    background-color: black;
+    size: 1.5rem;
+    color: black;
+}

@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cordon Portfolio Tic Tac Toe</title>
+    <link href="styles/style.css" rel="stylesheet" type="text/css"/>
     <script src="scripts/tictacscript.js"></script>
 </head>
 <body>
+    <button id="Button"><a href="index.html">Return</a></button>
     <h1>Tic Tac Toe</h1>
+    <p><span id="switchForWin">Current turn: <span id="tictacTurn">X</span></span></p>
+
     <table>
         <tr>
             <td><button id="a1" onclick="changeMark('a1')"></button></td>
@@ -25,5 +29,7 @@
             <td><button id="c3" onclick="changeMark('c3')"></button></td>
         </tr>
     </table>
+    
+    <button id="resetButton" onclick="resetGame()">Reset</button>
 </body>
 </html>
