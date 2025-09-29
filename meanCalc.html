@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="styles/style.css" rel="stylesheet" type="text/css"/>
+        <script src="scripts/meanCalcScript.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cordon Portfolio Mean Calculator</title>
+</head>
+<body>
+    <button><a href="index.html">Return</a></button>
+    <h1>Mean Calculator</h1>
+    <p>Welcome! Here, you can enter a data set, and my calculator will find the average within that data set!</p>
+
+    <h3>Data Entry</h3>
+    <!--get inputs -->
+
+    <p><label for="calcInput">Enter a value:</label><input type='text' id="calcInput"></p>
+    <button onclick='addVar()'>Add Value</button>
+    <button onclick='removeVar()'>Remove Value</button>
+
+
+    <!--display output-->
+    <h3>Current Dataset</h3>
+    <p><span id="dataset"></span></p>
+
+    <h3>Mean</h3>
+    <p><span id="meanOut"></span></p>
+
+</body>
+</html>

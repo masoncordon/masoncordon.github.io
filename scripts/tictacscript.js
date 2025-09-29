@@ -89,9 +89,6 @@ function checkWin() {
 //mentioned in any of the lectures, and the example code provided is written like this.
 
 function resetGame() {
-    document.getElementById("switchForWin").innerHTML = "Current turn: X";
-    xTurn = true;
-
     document.getElementById("a1").innerHTML = "";
     document.getElementById("a2").innerHTML = "";
     document.getElementById("a3").innerHTML = "";
@@ -104,4 +101,5 @@ function resetGame() {
     document.getElementById("c2").innerHTML = "";
     document.getElementById("c3").innerHTML = "";
 
+    changeMark();
 }

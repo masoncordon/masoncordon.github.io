@@ -21,6 +21,11 @@ body {
     max-width: 50%;
     flex-wrap: wrap;
 }
+
+.meanInput {
+    display: inline;
+}
+
 p {
     font-size: 1rem;
 }
