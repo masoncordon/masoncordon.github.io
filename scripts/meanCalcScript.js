@@ -9,6 +9,7 @@ function removeVar() {
     }
     //console.log(inputArray);
 
+    document.getElementById("calcInput").value = "";
     mMath();
 }
 
@@ -25,6 +26,7 @@ function addVar() {
     document.getElementById("dataset").innerHTML = inputArray.join(", ");
     //console.log(inputArray);
 
+    document.getElementById("calcInput").value = "";
     mMath();
 }
 
