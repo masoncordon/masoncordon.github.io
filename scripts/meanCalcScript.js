@@ -1,31 +1,29 @@
 let inputArray = [];
 
 function removeVar() {
-    let Cinput = document.getElementById("calcInput").value;
-    Cinput = Number(Cinput);
-    inputArray.pop(Cinput);
-    for(let i = 0; i < inputArray; i++){
+    let cInput = document.getElementById("calcInput").value;
+    cInput = Number(cInput);
+    inputArray.pop(cInput);
+    for(let i = 0; i < inputArray.length; i++){
         document.getElementById("dataset").innerHTML = inputArray[i];
     }
-    console.log(inputArray);
+    //console.log(inputArray);
 
     mMath();
 }
 
 function addVar() {
-    let Cinput = document.getElementById("calcInput").value;
+    let cInput = document.getElementById("calcInput").value;
 
-    if(isNaN(Cinput)){
+    if(isNaN(cInput)){
         alert("invalid number");
         return;
     }
 
     
-    inputArray.push(Cinput);
-    for(let i = 0; i < inputArray; i++){
-        document.getElementById("dataset").innerHTML = inputArray[i];
-    }
-    console.log(inputArray);
+    inputArray.push(cInput);
+    document.getElementById("dataset").innerHTML = inputArray.join(", ");
+    //console.log(inputArray);
 
     mMath();
 }
@@ -43,5 +41,5 @@ function mMath() {
 
     //output the result
     document.getElementById("meanOut").innerHTML = result;
-    console.log(result);
+    //console.log(result);
 }
