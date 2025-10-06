@@ -19,7 +19,7 @@ const loadMap = (rows = 4, cols = 4) => {
     }    
 
     // copy and shuffle into `array'
-    shuffledArray = shuffle(array.slice(), rows, cols);
+    shuffledArray = shuffle(array.slice());
 
     console.log("Max value: " + maxValue);
     console.log("rows: " + rows);
@@ -29,7 +29,7 @@ const loadMap = (rows = 4, cols = 4) => {
     
 }
 
-const shuffle = (shuffledArray, rows, cols) => {
+const shuffle = (shuffledArray) => {
     //implementing Fisher-Yates shuffle
     for (let i = shuffledArray.length - 1; i > 0; i--){
         const j = Math.floor(Math.random() * (i + 1));
@@ -40,12 +40,12 @@ const shuffle = (shuffledArray, rows, cols) => {
 
     //check if it's actually shuffled
     console.log("Shuffled array: " + shuffledArray);
-    sendTo2D(shuffledArray, rows, cols);
+    sendTo2D(shuffledArray);
     return shuffledArray;
 
 }
 
-const sendTo2D = (shuffledArray, rows, cols) => {
+const sendTo2D = (shuffledArray, rows=4, cols=4) => {
     //transfer shuffled array to global variable as a 2D array
     if (shuffledArray.length !== rows * cols) {
         throw new Error('shuffledArray length does not equal rows * cols');
@@ -59,5 +59,31 @@ const sendTo2D = (shuffledArray, rows, cols) => {
     }
     // check if the array is actually 2D
     console.log("2D array:", map);
+
     return map;
 }
+
+const makeBoard = (rows = 4, cols = 4) => {
+    //output to html page
+    let output = "<table>";
+    for (let row = 0; row < rows; row++) {
+        output += "<tr>";
+        for (let col = 0; col < cols; col++) {
+            output += "<td><button" +
+                ' class="tile"' +
+                ' id="' + row + '_' + col + '"' +
+                ' onclick="process(' + row + ',' + col + ')">' +
+                '</button></td>';
+        }
+        output += "</tr>";
+    }
+
+    document.getElementById('gameBoard').innerHTML = output + '</table>';
+}
+
+function resetBoard(){
+    loadMap();
+    makeBoard();
+}
+
+const process = (row, col) => {}
