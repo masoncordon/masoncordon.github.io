@@ -43,3 +43,136 @@ function tMath(){
     document.getElementById('tSemiPerimeter').innerHTML = semiperimeter;
     document.getElementById('tArea').innerHTML = area;
 }
+
+
+
+
+
+
+//checks if the DOM is loaded before running scripts
+//also checks if elements exist before adding event listeners
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const passwordInput = document.getElementById('password');
+    const usernameInput = document.getElementById('username');
+    const passwordMessage = document.getElementById('passwordMessage');
+    const usernameMessage = document.getElementById('usernameMessage');
+
+//username and password validation
+//validate password
+    if (passwordInput && passwordMessage) {
+        passwordInput.addEventListener('input', function() {
+        console.log("The user is typing.")
+        let password = this.value;
+        let hasLower = /[a-z]/.test(password);
+        let hasUpper = /[A-Z]/.test(password);
+        let hasNumber = /[0-9]/.test(password);
+        let hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+        let message = document.getElementById('passwordMessage');
+        const missing = [];
+
+        if (password.length < 8){
+            missing.push(" 8-character minimum")
+        }
+
+        if (!hasLower){
+            missing.push(" a lower-case letter")
+        }
+
+        if (!hasUpper){
+            missing.push(" an upper-case letter")
+        }
+
+        if (!hasNumber){
+            missing.push(" a number")
+        }
+
+        if (!hasSpecial){
+            missing.push(" a special character")
+        }
+
+        passwordMessage.innerHTML = missing.length ? 'You are missing:' + missing : 'Password is complete!';
+
+        });
+    }
+
+
+//validate username
+//username must be between 4 and 8 characters long, and can only contain letters, numbers, and underscores.
+
+    if (usernameInput && usernameMessage) {
+        usernameInput.addEventListener('input', function() {
+        console.log("The user is typing.")
+        let username = this.value;
+        let hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(username);
+
+        let message = document.getElementById('usernameMessage');
+        const missing = [];
+
+        if (username.length < 4){
+            message.innerHTML = "Username must be at least 4 characters long."
+        } else if (hasSpecial){
+            message.innerHTML = "Special characters are not allowed here, only underscores."
+        } else {
+            message.innerHTML = "Username is valid!"
+        }
+
+        });
+    }
+});
+
+
+
+
+
+//additional DOMContentLoaded listener for the form validation functions
+document.addEventListener('DOMContentLoaded', function() {
+
+//form validation and sanitization
+
+    const form = document.getElementById('commentForm');
+// escape utility and form-scoped sanitizer
+    function escapeString(str) {
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+//tries multiple ways to get field
+//then passes value into escapeString
+    function sanitizeField(formEl, fieldId) {
+        let el = null;
+        try {
+            el = formEl.querySelector('#' + fieldId) || formEl.elements[fieldId] || document.getElementById(fieldId);
+        } catch (err) {
+        // If selector fails, fall back to elements lookup
+            el = formEl.elements[fieldId] || document.getElementById(fieldId);
+        }
+
+        if (!el || typeof el.value === 'undefined') return;
+        el.value = escapeString(el.value);
+    }
+
+    function sanitizeFormAndSubmit(formEl, fieldsToSanitize) {
+    // preserves validation behavior built into HTML5 forms
+        if (!formEl.checkValidity()) {
+            formEl.reportValidity();
+            return;
+        }
+
+        fieldsToSanitize.forEach(id => sanitizeField(formEl, id));
+    // programmatic submit (won't re-trigger submit listeners)
+        formEl.submit();
+    }
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault(); // stop the immediate submit
+    // Sanitize the comment field (by id or name) then submit
+        sanitizeFormAndSubmit(form, ['comment']);
+    });
+});

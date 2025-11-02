@@ -53,6 +53,71 @@
             <button><a href="mastermind.html">GO</a></button>
 
             
+
+            <br><br>
+            <hr>
+            <h2>Comments</h2>
+            <p>Go ahead and leave a comment with your basic contact information if you've got any suggestions or concerns, and I'll gladly get back to you!</p>
+            <form action="phps/processCommentForm.php" id="commentForm" method="post">
+                <label for="username">Username:</label>
+                <input id="username" 
+                    type="text" 
+                    name="username"
+                    minlength="4"
+                    pattern="[A-Za-z0-9_]+"
+                    title="Username must have at least 4 characters, and can only contain letters, numbers, and underscores."
+                >
+                <p id="usernameMessage">Username is incomplete.</p>
+
+                <label for='password'>Password:</label>
+                    <input id='password' 
+                        type='password' 
+                        name='password'
+                        minlength="8"
+                        maxlength="16"
+                >
+                <p id="passwordMessage">Password is incomplete.</p>
+                <br><br>
+
+                <label for="name">First and Last Name:</label>
+                    <input id="name" 
+                        type="text" 
+                        name="name"
+                        placeholder="First and Last Name"
+                        pattern="[A-Za-z ]+"
+                        title="Name should only contain letters and spaces"
+                >
+                
+                <label for="phone">Phone Number:</label>
+                    <input id="phone"
+                        type="tel"
+                        name="phone"
+                        placeholder="123-456-7890"
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                        title="Phone number should be ten digits in total, with a dash between each set of digits."
+                >
+
+                <label for="email">Email Address:</label>
+                    <input id="email"
+                        type="email"
+                        name="email"
+                        placeholder="Email Address"
+                        autocomplete="email"
+                ><br><br>
+
+                <label for="comment"></label>
+                    <textarea id="comment"
+                        name="comment"
+                        rows="4"
+                        cols="50"
+                        placeholder="Enter your comment here..."
+                    ></textarea><br><br>
+
+                
+
+                <button id="submitButton" type="submit">submit</button>
+            </form>
+
     </div>
     </body>
 </html>
