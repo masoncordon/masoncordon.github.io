@@ -1,17 +1,20 @@
 
-
 function DefaultMode() {
     document.getElementById('mainPage').style="background-color: #faf0dc;";
     document.getElementById('condition').innerHTML = "Default";
+    //document.cookie = "mode=default;";
 }
 function DarkMode(){
     document.getElementById('mainPage').style="background-color: #000000ff;";
     document.getElementById('condition').innerHTML = "Dark Mode";
+    //document.cookie = "mode=dark;";
 }
 function LightMode(){
     document.getElementById('mainPage').style="background-color: white;";
     document.getElementById('condition').innerHTML = "Light Mode";
+    //document.cookie = "mode=light;";
 }
+
 
 //Calculator math
 //Pyramid
